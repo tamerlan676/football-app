@@ -1,23 +1,26 @@
 <template>
-  <div class="film-card">
-         <div class="news-item">
-            <img src="" alt="">
-            <h2>{{ article.title }}</h2>
-            <div class="anons"></div>
-        </div>
-    <router-link
+<div>
+  <div v-for="post in allPosts" :key="post.id">
+            <h2>{{ post.title }}</h2>
+            
+            <p>{{ post.body }}</p>
+            </div>
+            
+    <!-- <router-link
       :to="'/article' + article.id" :key="title">
       Подробнее
-    </router-link>
-  </div>
+    </router-link> -->
+    </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  props: {
-    article: {
-      type: Object
-    }
+   computed: mapGetters(["allPosts"]),
+    methods: mapActions(["fetchPosts"]),
+ async mounted() {
+    this.fetchPosts();
   }
 }
+
 </script>
