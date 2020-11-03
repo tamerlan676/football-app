@@ -4,12 +4,13 @@
             <h2>{{ post.title }}</h2>
             
             <p>{{ post.body }}</p>
+            <router-link
+      :to="'/article/' + post.id">
+      Подробнее
+    </router-link>
             </div>
             
-    <!-- <router-link
-      :to="'/article' + article.id" :key="title">
-      Подробнее
-    </router-link> -->
+    
     </div>
 </template>
 

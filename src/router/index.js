@@ -4,7 +4,9 @@ import NewsPage from '../views/NewsPage'
 import ArticlePage from '../views/ArticlePage'
 
 
+
 export default new  VueRouter({
+    
     mode: 'history',
     hash: false,
     routes: [
@@ -18,9 +20,12 @@ export default new  VueRouter({
         },
         {
             name: 'ArticlePage',
-            path: '/article:id',
+            path: '/article/:id',
+            props: true,
             component: ArticlePage      
         }
         
     ]
-  })
+
+  }
+  )
