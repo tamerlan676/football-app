@@ -21,7 +21,6 @@ export default new  VueRouter({
         {
             name: 'ArticlePage',
             path: '/article/:id',
-            props: true,
             component: ArticlePage      
         }
         

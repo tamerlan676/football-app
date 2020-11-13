@@ -1,6 +1,11 @@
 export default({
     actions: {
 
+        getPost({commit, state}, id){
+            const post = state.posts.find(post => post.id === id)
+            commit('setPost', post)
+        },
+
     //Получаем дынные с сервера
         async fetchPosts(ctx) {
             const res = await fetch(
@@ -18,14 +23,22 @@ export default({
         updatePosts(state, posts) {
             state.posts = posts
           },
+        setPost(state, post){
+            state.currentPost = post
+        }
     },
     state: {
-        posts: []//Пустой массив для приходящих по API постов
+        posts: [],//Пустой массив для приходящих по API постов
+        currentPost: {}
     },
     getters: {
         //Метод, с помощью которого можно получить данные с массива posts
         allPosts(state){ 
             return state.posts 
+        },
+        currentPost(state){
+            return state.currentPost
         }
+
     },
 })

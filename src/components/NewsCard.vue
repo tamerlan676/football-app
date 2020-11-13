@@ -5,7 +5,7 @@
             
             <p>{{ post.body }}</p>
             <router-link
-      :to="'/article/' + post.id">
+      :to="{ name: 'ArticlePage', params: {id: post.id} }">
       Подробнее
     </router-link>
             </div>
@@ -16,8 +16,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-export default {
-   computed: mapGetters(["allPosts"]),
+export default { 
+  props: {
+    id: {
+      type: Number,
+    }
+  },
+   computed: mapGetters(["allPosts"]),   
     methods: mapActions(["fetchPosts"]),
  async mounted() {
     this.fetchPosts();
