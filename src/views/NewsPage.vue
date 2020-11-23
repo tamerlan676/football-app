@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container">
 <h1>News</h1>
 <news-list/>
     </div>
@@ -14,3 +14,12 @@ export default {
     },  
 }
 </script>
+
+<style lang="css" scoped>
+.container{
+  width: 1280px;
+  margin: 10px auto;
+  height: auto;
+}
+
+</style>
